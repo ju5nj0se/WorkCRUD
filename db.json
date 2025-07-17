@@ -1,1 +1,35 @@
-{}
+{
+    "companies": [
+        {
+            "id": 0,
+            "name": "Name company",
+            "logo": "",
+            "category": "Technology",
+            "description":"Description company"
+        }
+    ],
+
+    "applicants": [
+        {
+            "id": 0,
+            "name":"Juan Jose",
+            "cv":"",
+            "habilities": [],
+            "laboral experience": []
+        }
+    ],
+
+    "jobs": [
+        {   
+            "id":0,
+            "nameCompany":"Name Company",   
+            "title":"title vacant",
+            "description":"description vacant",
+            "requirements": [],
+            "salary":123,
+            "modality": "hibrid"
+        }
+
+    ]
+
+}
