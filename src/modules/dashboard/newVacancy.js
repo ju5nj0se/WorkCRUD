@@ -2,7 +2,7 @@ import { router } from "../router.js";
 
 
 export function newVacancy() {
-    content.innerHTML = `
+  content.innerHTML = `
           <div class="container mx-auto p-6 max-w-xl bg-white shadow-lg rounded-lg">
     <form id="formNewVacancy" class="space-y-5">
 
@@ -24,6 +24,8 @@ export function newVacancy() {
           <input type="text" id="vacancyRequirements"
             class="inputForEach flex-1 border border-gray-300 rounded-md shadow-sm p-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
             <button type="button" id="addRequirement" class="block px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">Agregar requisito</button>
+        </div>
+        <div id="alert">
         </div>
       </div>
 
@@ -54,65 +56,75 @@ export function newVacancy() {
     `
 
 
-    let vacancyTitle = document.getElementById("vacancyTitle")
-    let vacancyDescription = document.getElementById("vacancyDescription")
-    let sendVacant = document.getElementById("sendVacant")
-    //add requirements 
-    let vacancyRequirementsContainer = document.getElementById("vacancyRequirementsContainer")
-    let vacancyRequirements = document.getElementById("vacancyRequirements")
-    let addRequirement = document.getElementById("addRequirement")
-    let vacancySalary = document.getElementById("vacancySalary")
-    let modeJob = document.getElementById("modeJob")
-    let requirementList = []
+  let vacancyTitle = document.getElementById("vacancyTitle")
+  let vacancyDescription = document.getElementById("vacancyDescription")
+  let sendVacant = document.getElementById("sendVacant")
+  //add requirements 
+  let vacancyRequirementsContainer = document.getElementById("vacancyRequirementsContainer")
+  let vacancyRequirements = document.getElementById("vacancyRequirements")
+  let addRequirement = document.getElementById("addRequirement")
+  let vacancySalary = document.getElementById("vacancySalary")
+  let modeJob = document.getElementById("modeJob")
+  let requirementList = []
+  let alert = document.getElementById("alert")
 
 
-    //When the user wants to enter vacancy requirements, the button appears
+  //When the user wants to enter vacancy requirements, the button appears
 
-    addRequirement.addEventListener("click", () => {
-        let requirement = vacancyRequirements.value
-        requirementList.push(requirement)
-    })
+  addRequirement.addEventListener("click", () => {
+    let requirement = vacancyRequirements.value
+    requirementList.push(requirement)
+    alert.style = "color: green"
+    alert.innerHTML = `El requisito se agrego correctamente`
+  })
 
-    sendVacant.addEventListener("click", () => {
-        let vacancy = {
-            //Nombre de la empresa que esta logeada y crea la nueva vacante
-            "title": vacancyTitle.value,
-            "description": vacancyDescription.value,
-            "requirements": requirementList,
-            "salary": vacancySalary.value,
-            "mode": modeJob.value
+  sendVacant.addEventListener("click", () => {
+
+    if ((!vacancyTitle.value || !vacancyDescription.value || !vacancyRequirements.value || !vacancySalary.value) || (vacancyTitle.value.trim() == "" || vacancyDescription.value.trim() == "" || vacancyRequirements.value.trim() == "")) {
+      Swal.fire({
+        title: "Todos los campos deben estar llenos",
+        icon: "error"
+      })
+    } else {
+      let vacancy = {
+        //Nombre de la empresa que esta logeada y crea la nueva vacante
+        "title": vacancyTitle.value,
+        "description": vacancyDescription.value,
+        "requirements": requirementList,
+        "salary": vacancySalary.value,
+        "mode": modeJob.value
+      }
+      Swal.fire({
+        title: "Vacante creada correctamente",
+        icon: "success",
+        draggable: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          sendNewVacany(vacancy)
         }
-        Swal.fire({
-            title: "Vacante creada correctamente",
-            icon: "success",
-            draggable: true
-        }).then((result)=>{
-            if(result.isConfirmed){
-                sendNewVacany(vacancy)
-            }
-        });
+      });
+    }
 
-    
-    })
-
+  })
 }
 
 
 //Create new vacancy
 async function sendNewVacany(vacancy) {
-    try {
-        const res = fetch(router.url + "/vacancies", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(vacancy)
+  try {
+    const res = fetch(router.url + "/vacancies", {
+      cache:"no-store",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(vacancy)
 
-        })
-        if (res.ok) {
-            console.log("HOLA")
-        }
-    } catch (error) {
-        console.error("ERROR", error)
+    })
+    if (res.ok) {
+      console.log("HOLA")
     }
+  } catch (error) {
+    console.error("ERROR", error)
+  }
 }

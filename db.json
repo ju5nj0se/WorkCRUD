@@ -12,123 +12,13 @@
     {
       "id": 0,
       "name": "Juan Jose",
-      "email":"juan@gmail.com",
+      "email": "juan@gmail.com",
       "cv": "",
       "habilities": [],
       "laboral experience": [],
-      "password":"123"
+      "password": "123"
     }
   ],
   "vacancies": [
-    {
-      "title": "Titulo",
-      "description": "aaaa",
-      "requirements": [
-        "Sofia"
-      ],
-      "salary": "12",
-      "mode": "inPerson",
-      "id": 1
-    },
-    {
-      "title": "Esto es una vacante",
-      "description": "Trabajo en el Dollarcity",
-      "requirements": [
-        "Bachiller"
-      ],
-      "salary": "2000000",
-      "mode": "hybrid",
-      "id": 2
-    },
-    {
-      "title": "aaa",
-      "description": "aaaa",
-      "requirements": [
-        "Sofia"
-      ],
-      "salary": "1212",
-      "mode": "inPerson",
-      "id": 3
-    },
-    {
-      "title": "gyugya",
-      "description": "asdasda",
-      "requirements": [
-        "aaa"
-      ],
-      "salary": "12312",
-      "mode": "inPerson",
-      "id": 4
-    },
-    {
-      "title": "Titulo",
-      "description": "asdasda",
-      "requirements": [
-        "asdasdasd"
-      ],
-      "salary": "22222",
-      "mode": "inPerson",
-      "id": 5
-    },
-    {
-      "title": "gyugy",
-      "description": "asdasdad",
-      "requirements": [
-        "aa"
-      ],
-      "salary": "12",
-      "mode": "inPerson",
-      "id": 6
-    },
-    {
-      "title": "EJEME",
-      "description": "aaaaaa",
-      "requirements": [
-        "123123"
-      ],
-      "salary": "1232",
-      "mode": "inPerson",
-      "id": 7
-    },
-    {
-      "title": "Titulo",
-      "description": "aaaaa",
-      "requirements": [
-        "Sofia"
-      ],
-      "salary": "12312",
-      "mode": "inPerson",
-      "id": 8
-    },
-    {
-      "title": "Titulo",
-      "description": "werasdasdasd",
-      "requirements": [
-        "Sofia"
-      ],
-      "salary": "123",
-      "mode": "inPerson",
-      "id": 9
-    },
-    {
-      "title": "EJEMpL",
-      "description": "sofia",
-      "requirements": [
-        "sofia"
-      ],
-      "salary": "12312313",
-      "mode": "inPerson",
-      "id": 10
-    },
-    {
-      "title": "asdasd",
-      "description": "asdasda",
-      "requirements": [
-        "asdasd"
-      ],
-      "salary": "12",
-      "mode": "inPerson",
-      "id": 11
-    }
   ]
 }
