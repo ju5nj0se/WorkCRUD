@@ -3,6 +3,7 @@ import { loginEmploye } from "./loginEmployee.js";
 import {registerEmploye} from './registerEmploye.js'
 import { loginCompany } from "./loginCompany.js";
 import { registerCompany } from "./registerCompany.js";
+import { newVacancy } from "./newVacancy.js";
 
 
 export const router = {
@@ -12,4 +13,5 @@ export const router = {
   '#/loginCompany': loginCompany,
   '#/registerCompany':  registerCompany,
   '#/registerEmploye': registerEmploye,
+  "#/newVacancy":newVacancy
 };
