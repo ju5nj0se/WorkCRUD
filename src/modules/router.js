@@ -3,7 +3,7 @@ import { loginEmploye } from "./loginEmployee.js";
 import {registerEmploye} from './registerEmploye.js'
 import { loginCompany } from "./loginCompany.js";
 import { registerCompany } from "./registerCompany.js";
-import { newVacancy } from "./newVacancy.js";
+import { newVacancy } from "./dashboard/newVacancy.js";
 
 
 export const router = {
