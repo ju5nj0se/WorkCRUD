@@ -12,7 +12,7 @@ export function loginEmploye() {
                 </div>
                 <div class="flex flex-col m-2">
                     <label for="pass">Password</label>
-                    <input type="password" name="pass" placeholder="Password" class="border-b-1 p-1 focus:outline-none" required>
+                    <input type="password" name="password" placeholder="Password" class="border-b-1 p-1 focus:outline-none" required>
                 </div>
                 <div class="flex justify-center pt-4">
                     <button type="submit" id="submit" class="p-1 px-3 w-20 rounded-lg border-1 hover:scale-101 transition-transform">Login</button>
@@ -26,9 +26,28 @@ export function loginEmploye() {
     location.hash = '#/loginEmploye';
     title.textContent = "Login Employe"
     const register = document.getElementById('register');
+    const formLoginEmploye = document.getElementById('formLoginEmploye');
+    const msg = document.getElementById("msg")
 
     register.addEventListener('click', () => {
       const link = register.dataset.link;
       router[link]();
     });
+
+    formLoginEmploye.addEventListener("submit", async e => {
+        e.preventDefault();
+
+        let data = new FormData(formLoginEmploye)
+        data = Object.fromEntries(data.entries())
+
+        const res = await fetch(router.url + `/applicants?email=${data.email}&password=${data.password}`);
+        const dat = await res.json();
+
+        if (dat.lenght) {
+            localStorage.setItem("session", JSON.stringify({'type':'apliccant', 'name':data.email}))
+            router['#/viewEmploye']();
+        } else {
+            msg.outerHTML = "<p class='text-red-600 text-center'>User not found</p>"
+        }
+    })
 }

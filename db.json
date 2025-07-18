@@ -12,9 +12,11 @@
     {
       "id": 0,
       "name": "Juan Jose",
+      "email":"juan@gmail.com",
       "cv": "",
       "habilities": [],
-      "laboral experience": []
+      "laboral experience": [],
+      "password":"123"
     }
   ],
   "vacancies": [

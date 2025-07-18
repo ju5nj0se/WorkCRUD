@@ -4,14 +4,16 @@ import {registerEmploye} from './registerEmploye.js'
 import { loginCompany } from "./loginCompany.js";
 import { registerCompany } from "./registerCompany.js";
 import { newVacancy } from "./dashboard/newVacancy.js";
+import { viewEmploye } from "./dashboard/viewEmploye.js";
 
 
 export const router = {
-  'url': 'http://localhost:3000',
+  url: 'http://localhost:3000',
   '#/home': home,
   '#/loginEmploye': loginEmploye,
   '#/loginCompany': loginCompany,
-  '#/registerCompany':  registerCompany,
+  '#/registerCompany': registerCompany,
   '#/registerEmploye': registerEmploye,
-  "#/newVacancy":newVacancy
+  '#/dashboard/newVacancy': newVacancy,
+  '#/dashboard/viewEmploye': viewEmploye,
 };

@@ -25,6 +25,7 @@ export function home() {
             </main>
         </section>
     `;
+    title.textContent = 'Home'
     location.href = '#/home'
     const login = document.getElementById("login");
 
